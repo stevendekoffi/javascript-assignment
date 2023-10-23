@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <title>Loops</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <h3>Welcome Lucky! You have some queries to review.</h3>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <div id="table-container" class="table table-bordered"></div>
+
+    <script>
+        const queries = 
+        [{ ID: 1, Student: "Genesis", Query: "Permission to absent from tech class", Status: "APPROVED", action: "Approve Decline" },
+        { ID: 2, Student: "Nunya", Query: "Permission to Absa Hackathon", Status: "APPROVED", Action: "Approve Decline" },
+        { ID: 3, Student: "Fleeur", Query: "Permission to shoot film", Status: "DECLINED", Action: "Approve Decline" },
+        { ID: 4, Student: "Delight", Query: "Need some delightful time to cool off", Status: "DECLINED", Action: "Approve Decline" },
+        { ID: 5, Student: "Sila", Query: "Permission to participate in Absa Hackathon", Status: "PENDING", Action: "Approve Decline" }]
+
+        // Get a reference to the container div
+        const tableContainer = document.getElementById('table-container');
+
+        // Create a table element
+        const table = document.createElement('table');
+
+        // Create table header
+        const tableHeader = document.createElement('thead');
+        const headerRow = document.createElement('tr');
+
+        for (const key in queries[0]) {
+            const th = document.createElement('th');
+            th.textContent = key;
+            headerRow.appendChild(th);
+        }
+
+        tableHeader.appendChild(headerRow);
+        table.appendChild(tableHeader);
+
+        // Create table body using a while loop
+        const tableBody = document.createElement('tbody');
+        let i = 0;
+
+        while (i < queries.length) {
+            const row = document.createElement('tr');
+            for (const key in queries[i]) {
+                const cell = document.createElement('td');
+                cell.textContent = queries[i][key];
+                row.appendChild(cell);
+            }
+            tableBody.appendChild(row);
+            i++;
+        }
+
+        table.appendChild(tableBody);
+        tableContainer.appendChild(table);
+
+        // Create table body using a do-while loop
+        const tableBodyDoWhile = document.createElement('tbody');
+        let j = 0;
+
+        do {
+            const row = document.createElement('tr');
+            for (const key in queries[j]) {
+                const cell = document.createElement('td');
+                cell.textContent = queries[j][key];
+                row.appendChild(cell);
+            }
+            tableBodyDoWhile.appendChild(row);
+            j++;
+        } while (j < queries.length);
+
+
+    </script>
+
+</body>
+
+</html>
